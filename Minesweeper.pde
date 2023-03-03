@@ -35,8 +35,8 @@ public void setMines()
 
 public void draw ()
 {
-    background( 0 );
-  }
+  background( 0 );
+}
 public boolean isWon()
 {
   for (int i = 0; i < NUM_ROWS; i++)
@@ -53,7 +53,7 @@ public boolean isWon()
 }
 public void displayLosingMessage()
 {
-  for(int i = 0; i < mines.size(); i++)
+  for (int i = 0; i < mines.size(); i++)
   {
     mines.get(i).clicked = true;
     mines.get(i).draw();
@@ -132,6 +132,13 @@ public class MSButton
       //DOWN NEIGHBOR
       if (isValid(myRow+1, myCol) && !(buttons[myRow+1][myCol].clicked)) {
         buttons[myRow+1][myCol].mousePressed();
+      //DIAG
+      if (isValid(myRow+1, myCol+1) && !(buttons[myRow+1][myCol+1].clicked)) {
+        buttons[myRow+1][myCol+1].mousePressed();
+      }
+        if (isValid(myRow-1, myCol-1) && !(buttons[myRow-1][myCol-1].clicked)) {
+        buttons[myRow-1][myCol-1].mousePressed();
+        }
       }
     }
   }
@@ -150,8 +157,9 @@ public class MSButton
     fill(0);
     textSize(10);
     text(myLabel, x+width/2, y+height/2);
-    if (isWon() == true)
+    if (isWon() == true) {
       displayWinningMessage();
+    }
     if (uLost == true)
     {
       textSize(80);
