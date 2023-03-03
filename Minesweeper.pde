@@ -20,7 +20,7 @@ public void setup ()
     }
   }
 
-  for (int i = 0; i < 5; i++) //change i < 1 to set amt of mines
+  for (int i = 0; i < 15; i++) //change i < 1 to set amt of mines
   {    
     setMines();
   }
